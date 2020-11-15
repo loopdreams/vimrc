@@ -8,26 +8,34 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+" Writing
 Plug 'reedes/vim-pencil'
-Plug 'morhetz/gruvbox'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki'
+" Color
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'relastle/bluewery.vim'
+Plug 'tomasr/molokai'
+Plug 'dracula/vim',{'as':'dracula'}
+Plug 'jnurmine/Zenburn'
+Plug 'adrian5/oceanic-next-vim'
+" Utlis
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
-Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'ap/vim-css-color'
 call plug#end()
 
-set bg=dark
 set go=a
 set mouse=a
 set nohlsearch
@@ -35,6 +43,8 @@ set clipboard+=unnamedplus
 set shiftwidth=4
 set tabstop=4 softtabstop=4
 set smartindent
+
+set bg=dark
 colorscheme gruvbox
 
 
@@ -47,7 +57,7 @@ colorscheme gruvbox
 	set number relativenumber
 	set omnifunc=syntaxcomplete#Complete
 	let g:pandoc#biblo#sources = "g"
-	let g:pandoc#biblio#bibs =['/home/eoin/Documents/writing/lib.bib']
+	let g:pandoc#biblio#bibs =['$BIB']
 
 " fzf search
 	noremap <C-p> :Files<CR>
@@ -107,7 +117,7 @@ colorscheme gruvbox
 	map <leader>s :!clear && shellcheck %<CR>
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$HOME/Documents/writing/lib.bib<CR>
+	map <leader>b :vsp<space>$BIB<CR>
 	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
