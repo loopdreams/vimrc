@@ -21,6 +21,7 @@ Plug 'tomasr/molokai'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'jnurmine/Zenburn'
 Plug 'adrian5/oceanic-next-vim'
+Plug 'ryuta69/elly.vim'
 " Utlis
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -45,7 +46,10 @@ set tabstop=4 softtabstop=4
 set smartindent
 
 set bg=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+" hi Normal guibg=NONE ctermbg=NONE
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 
 " Some basics:
@@ -120,6 +124,10 @@ colorscheme gruvbox
 	map <leader>b :vsp<space>$BIB<CR>
 	map <leader>r :vsp<space>$REFER<CR>
 
+" colorschemes
+	map <leader>l :colorscheme<space>bluewery-light<CR>
+	map <leader>L :colorscheme<space>default<CR>
+	map <leader>g :colorscheme<space>gruvbox<CR>
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
@@ -166,4 +174,4 @@ if &diff
 endif
 
 
-autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
+" autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
